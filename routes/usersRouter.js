@@ -1,13 +1,28 @@
-const mongoose = require('mongoose'),
-  Users = require('../models/users');
+const usersModel = require('../models/usersModel'),
+  debug = require('debug')('myapp');
 
+  
 const getUsers = function(req, res, next) {
-  res.send('查询');
-  // Users.fetch((err, users) => {
+  console.log('查询用户信息');
+  usersModel.fetch((err, users) => {
+    if(err) {
+      console.log(err);
+    }
+    res.send({title: '用户列表', users: users});
+  });
+  // const newUser = new usersModel({name: 'abcde', age: '22'});
+  // newUser.save( (err, data) => {
   //   if(err) {
-  //     console.log(err);
+  //     debug(err);
+  //     res.send('数据库操作有误');
   //   }
-  //   res.send('users', {title: '用户列表', users: users});
+  // });
+  // usersModel.find( (err, data) => {
+  //   if(err) {
+  //     debug(err);
+  //     res.send('数据库操作有误');
+  //   }
+  //   res.send({title: '用户列表', users: data});
   // });
 };
 

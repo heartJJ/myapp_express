@@ -4,11 +4,9 @@ const express = require('express'),
   logger = require('morgan'),
   cookieParser = require('cookie-parser'),
   bodyParser = require('body-parser'),
-  mongoose = require('mongoose'),
   routes = require('./routes/index'),
   app = express();
 
-mongoose.connect('mongodb://localhost/runoob');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
