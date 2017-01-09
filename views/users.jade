@@ -1,9 +1,11 @@
- extends layout
- 
- block content
-   h1= title //jade取值方式
-   ul
-     each user in users //jade模版的遍历方式
-       li
-         h4 #{user.name}    
-        span #{user.paw}
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  ul
+    each user in users
+      li
+        h4 用户姓名 #{user.name}
+        p 创建时间： #{user.meta.updateAt}
+        a(href = '/user/#{user._id}') 查看详情

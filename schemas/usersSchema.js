@@ -3,6 +3,7 @@ const mongoose = require('../common/mongo_connect');
 const UsersSchema = new mongoose.Schema({
   name: String,
   paw: String,
+  age: Number,
   meta: {
     createAt: {
       type: Date,
@@ -37,5 +38,8 @@ UsersSchema.statics = {
         .exec(cb);
   }
 };
+
+
+
 
 module.exports = UsersSchema;
