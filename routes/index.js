@@ -1,16 +1,16 @@
-const {extname, basename, resolve} = require('path');
-const {readdirSync, statSync} = require('fs');
+const {extname, basename} = require('path'),
+  readFile = require('../common/load_files');
 
-const readFile = (option) => {
-  return readdirSync(option).map(val => {
-    const filePath = resolve(option, val);
-    if(statSync(filePath).isDirectory()) {
-      return readFile(filePath);
-    } else if(statSync(filePath).isFile()){
-      return [filePath];
-    }
-  }).reduce((preV, curV) => [...preV, ...curV], []);
-};
+// const readFile = (option) => {
+//   return readdirSync(option).map(val => {
+//     const filePath = resolve(option, val);
+//     if(statSync(filePath).isDirectory()) {
+//       return readFile(filePath);
+//     } else if(statSync(filePath).isFile()){
+//       return [filePath];
+//     }
+//   }).reduce((preV, curV) => [...preV, ...curV], []);
+// };
 
 module.exports = function(app) {
   readFile(__dirname)

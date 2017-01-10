@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/runoob');
 
+mongoose.Promise = global.Promise; // use native promise(also bluebird, q)
+
 const db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error:'));
