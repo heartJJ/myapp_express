@@ -7,6 +7,7 @@ const express = require('express'),
   routes = require('./routes/index'),
   debug = require('debug')('myapp'),
   log = require('./common/logger_file'),
+  // log = require('./common/bunyan_logger_config'),
   app = express();
 
 // view engine setup
@@ -14,7 +15,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
-// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, './public/images/a.ico'))); // 未起作用
 // app.use(logger('dev'));
 log(app); // 日志
 app.use(bodyParser.json()); // for parsing application/json
@@ -27,6 +28,7 @@ app.use((req, res, next) => {
   if(req.body) {
     Object.keys(req.body).forEach(key => req.body[key] = JSON.parse(req.body[key]));
   }
+  debug(path.join(__dirname, './public/images/a.ico'));
   debug('req.body：', req.body);
   next();
 });

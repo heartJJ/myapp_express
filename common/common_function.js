@@ -11,7 +11,7 @@ exports.functionHandle = fn => {
     .catch(err => {
       debug(err);
       // process.exit();
-      return err;
+      res.send('服务器出错了!');
     });
   };
 };

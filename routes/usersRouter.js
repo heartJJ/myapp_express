@@ -1,6 +1,4 @@
-const usersModel = require('../models/usersModel'),
-  co = require('co'),
-  debug = require('debug')('myapp'),
+const debug = require('debug')('myapp'),
   {functionHandle} = require('../common/common_function'),
   // userService = require('../services/userService');
   {userService} = require('../services');
