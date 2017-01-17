@@ -13,7 +13,9 @@ const UsersSchema = new mongoose.Schema({
       type: Date,
       default: Date.now()
     }
-  }
+  },
+  info: Array,
+  address: Object
 });
 
 UsersSchema.pre('save', function(next) {

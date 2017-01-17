@@ -1,6 +1,7 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose'),
+  config = require('../config/mongo_config.json')['local'];
 
-mongoose.connect('mongodb://localhost/runoob');
+mongoose.connect(`mongodb://${config.username}:${config.password}@localhost/${config.database}`);
 
 mongoose.Promise = global.Promise; // use native promise(also bluebird, q)
 
