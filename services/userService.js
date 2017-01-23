@@ -23,8 +23,9 @@ userService.getUser = co.wrap(function*(id) {
  * 新建用户
  */
 userService.createUser = co.wrap(function*(option) {
-  const newUser = new usersModel(option);
-  return yield newUser.save();
+  // const newUser = new usersModel(option);
+  // return yield newUser.save();
+  return yield usersModel.create(option);
 });
 
 /**

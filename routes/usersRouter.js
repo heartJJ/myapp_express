@@ -36,12 +36,12 @@ const getUser = functionHandle(function*(req, res, next) {
 });
 
 const createUser = functionHandle(function*(req, res, next) {
-  const data = yield userService.createUser(req.body.User);
+  const data = yield userService.createUser(req.Body.User);
   res.send(data);
 });
 
 const updateUser = functionHandle(function*(req, res, next) {
-  const data = yield userService.updateUser(req.params.id, req.body.User);
+  const data = yield userService.updateUser(req.params.id, req.Body.User);
   res.send(data);
 });
 
