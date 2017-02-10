@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    title= '聊天室'
+    link(rel='stylesheet', href='/stylesheets/chat.css')
+    script(type='text/javascript' src='/javascripts/chat.js')
+    script(type='text/javascript' src='https://code.jquery.com/jquery-1.10.2.min.js')
+    script(type='text/javascript' src='/socket.io/socket.io.js')
+  body
+    ul.pages
+      li(class='chat page')
+        .chatArea
+          ul.messages
+        input(class='inputMessage', placeholder='Type here...')
+      li(class='login page')
+        .form
+          h3.title What's your nickname?
+          input(class='usernameInput', tyep='text', maxlength='14')
+          

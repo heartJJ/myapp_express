@@ -4,22 +4,25 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('myapp');
-var http = require('http');
+const app = require('../app'),
+  debug = require('debug')('myapp'),
+  server = require('http').Server(app),
+  io = require('socket.io')(server),
+  socketHandle = require('../socket/socket');
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 /**
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+// const server = http.createServer(app),
+//   io = require('socket.io')(server);
 
 /**
  * Listen on provided port, on all network interfaces.
@@ -30,11 +33,18 @@ server.on('error', onError);
 server.on('listening', onListening);
 
 /**
+ * sockit.io connect 
+ */
+io.on('connection',  socket => {
+  socketHandle(socket);
+});
+
+/**
  * Normalize a port into a number, string, or false.
  */
 
 function normalizePort(val) {
-  var port = parseInt(val, 10);
+  const port = parseInt(val, 10);
 
   if (isNaN(port)) {
     // named pipe
