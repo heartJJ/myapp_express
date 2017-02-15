@@ -8,7 +8,7 @@ const app = require('../app'),
   debug = require('debug')('myapp'),
   server = require('http').Server(app),
   io = require('socket.io')(server),
-  socketHandle = require('../socket/socket');
+  socketHandle = require('../socket/index');
 
 /**
  * Get port from environment and store in Express.

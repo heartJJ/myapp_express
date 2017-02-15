@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "cross-env DEBUG=myapp nodemon ./bin/www",
+    "start": "cross-env DEBUG=myapp,socket.io:* nodemon ./bin/www",
     "test": "cross-env DEBUG=myapp ./node_modules/mocha/bin/mocha ./test/test"
   },
   "dependencies": {
