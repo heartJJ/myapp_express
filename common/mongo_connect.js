@@ -13,6 +13,6 @@ db.once('open', () => {
   console.log('connection success...');
 });
 
-// mongoose.set('debug', true); // sql 打印
+//mongoose.set('debug', true); // sql 打印
 
 module.exports = mongoose;
